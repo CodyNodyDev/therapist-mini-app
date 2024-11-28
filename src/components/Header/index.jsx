@@ -8,7 +8,7 @@ function Header() {
         <div className="header">
             <div className="left-side">
                 <div className="icon-container">[ i ]</div>
-                <div className="username-container">@{user}</div>
+                <div className="username-container">@{user || "username"}</div>
             </div>
             <div className="right-side">
                 <div className="level-container">
