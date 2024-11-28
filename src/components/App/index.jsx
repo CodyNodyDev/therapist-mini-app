@@ -7,10 +7,10 @@ function App() {
         <div className="layout">
             <Header />
             <div className="page-title-container">
-              <span className="page-title">Выберите пол</span>
+                <span className="page-title">Выберите пол</span>
             </div>
             <div className="image-container">
-              <div className="image">[ I M A G E ]</div>
+                <div className="image">[ I M A G E ]</div>
             </div>
         </div>
     );

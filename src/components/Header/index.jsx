@@ -1,22 +1,18 @@
 import { useState, useEffect } from "react";
-import WebApp from '@twa-dev/sdk'
+import WebApp from "@twa-dev/sdk";
 import "./style.css";
 
 function Header() {
     const [userName, setUserName] = useState("username");
 
     try {
-        setUserName(
-            WebApp.initDataUnsafe.user.username
-        );
+        setUserName(WebApp.initDataUnsafe.user.username);
     } catch {
-        WebApp.showPopup("У вас отсутствует username.")
+        WebApp.showPopup("У вас отсутствует username.");
     }
 
-    useEffect(() => {
-        
-    }, [])
-    
+    useEffect(() => {}, []);
+
     return (
         <div className="header">
             <div className="left-side">
