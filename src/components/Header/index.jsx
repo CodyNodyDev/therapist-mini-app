@@ -1,21 +1,14 @@
-import { useState, useEffect } from "react";
-import WebApp from "@twa-dev/sdk";
+import { useTelegram } from "../../hooks/TelegramProvider";
 import "./style.css";
 
 function Header() {
-    const [userName, setUserName] = useState("username");
-
-    try {
-        setUserName(WebApp.initDataUnsafe.user);
-    } catch {
-        WebApp.showPopup("У вас отсутствует username.");
-    }
+    const { user, webApp } = useTelegram();
 
     return (
         <div className="header">
             <div className="left-side">
                 <div className="icon-container">[ i ]</div>
-                <div className="username-container">@{userName}</div>
+                <div className="username-container">@{user}</div>
             </div>
             <div className="right-side">
                 <div className="level-container">
