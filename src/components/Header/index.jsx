@@ -6,12 +6,10 @@ function Header() {
     const [userName, setUserName] = useState("username");
 
     try {
-        setUserName(WebApp.initDataUnsafe.user.username);
+        setUserName(WebApp.initDataUnsafe.user);
     } catch {
         WebApp.showPopup("У вас отсутствует username.");
     }
-
-    useEffect(() => {}, []);
 
     return (
         <div className="header">
