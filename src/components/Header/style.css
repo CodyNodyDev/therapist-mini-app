@@ -1,0 +1,53 @@
+.header * {
+    border: 1px solid purple;
+}
+
+.header,
+.header * {
+    display: flex;
+}
+
+.header {
+    height: 90px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.left-side,
+.right-side {
+    padding: 0 5px;
+    align-items: center;
+    height: 30px;
+}
+
+.right-side {
+    gap: 10px;
+}
+
+.left-side,
+.right-side .level-container,
+.right-side .wallet-container {
+    gap: 5px;
+}
+
+.right-side .level-container,
+.right-side .wallet-container {
+    justify-content: flex-start;
+}
+
+.icon-container {
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.username-container {
+    width: 90px;
+}
+
+.wallet {
+    white-space: nowrap;
+}
