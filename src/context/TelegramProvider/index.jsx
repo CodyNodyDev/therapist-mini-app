@@ -10,6 +10,7 @@ export const TelegramProvider = ({ children }) => {
         if (telegram) {
             telegram.ready();
             setWebApp(telegram);
+            console.log("Telegram WebApp initDataUnsafe:", telegram.initDataUnsafe); // Отладка
         }
     }, []);
 
@@ -17,8 +18,8 @@ export const TelegramProvider = ({ children }) => {
         return webApp
             ? {
                   webApp,
-                  unsafeData: webApp.initDataUnsafe,
-                  user: webApp?.initDataUnsafe?.user,
+                  unsafeData: webApp.initDataUnsafe || "no-unsafeData",
+                  user: webApp?.initDataUnsafe?.user || "no-user",
               }
             : {};
     }, [webApp]);

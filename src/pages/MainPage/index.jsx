@@ -1,5 +1,4 @@
 import React from "react";
-import { TelegramProvider } from "../../context/TelegramProvider";
 import { useSelector } from "react-redux";
 import TitleImageContent from "../../components/TitleImageContent";
 import "./style.css";
@@ -16,13 +15,11 @@ const MainPage = () => {
     const userImage = "U S E R - I M A G E";
 
     return (
-        <TelegramProvider>
-            <TitleImageContent
-                title={userSex.length !== 0 ? userTitle : startTitle}
-                image={userSex.length !== 0 ? userImage : startImage}
-                isSexChosen={userSex.length !== 0}
-            />
-        </TelegramProvider>
+        <TitleImageContent
+            title={userSex.length !== 0 ? userTitle : startTitle}
+            image={userSex.length !== 0 ? userImage : startImage}
+            isSexChosen={userSex.length !== 0}
+        />
     );
 };
 
