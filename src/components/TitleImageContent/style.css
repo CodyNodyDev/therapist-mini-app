@@ -1,0 +1,28 @@
+.tic-title-container {
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tic-title-container .page-title {
+    text-align: center;
+}
+
+.tic-image-container {
+    max-width: 280px;
+    height: 270px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* todo: will delete */
+.tic-image-container .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkkhaki;
+}
