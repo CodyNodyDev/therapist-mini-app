@@ -14,13 +14,13 @@ const SetSex = () => {
         <div className="sex-buttons-container">
             {/* //todo: create custom button component */}
             <button className="sex-button" onClick={() => setSexAction("male")}>
-                [ Мужчина ]
+                 Мужчина 
             </button>
             <button
                 className="sex-button"
                 onClick={() => setSexAction("female")}
             >
-                [ Девушка ]
+                 Девушка 
             </button>
         </div>
     );

@@ -1,6 +1,8 @@
 import React from "react";
 import SetSex from "../SetSex";
 import Profile from "../Profile";
+import gender from "../../assets/gender.svg"
+import genderChoosed from  "../../assets/genderChoosed.svg"
 import "./style.css";
 
 const TitleImageContent = ({ title, image, isSexChosen }) => {
@@ -11,7 +13,7 @@ const TitleImageContent = ({ title, image, isSexChosen }) => {
             </div>
             <div className="tic-image-container">
                 {/* //todo: insert svt sprite */}
-                <div className="image">{image}</div>
+                <img src = {isSexChosen? genderChoosed : gender} alt = "gender" className="image"></img>
             </div>
             <div className="tic-content-container">
                 {!isSexChosen ? <SetSex /> : <Profile />}
