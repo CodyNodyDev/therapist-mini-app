@@ -10,18 +10,28 @@ const SetSex = () => {
         dispatch(setUserSex(sex));
     };
 
+    const genderButtons = [
+        {
+            key: "male",
+            label: "Мужчина"
+        },
+        {
+            key: "female",
+            label: "Девушка"
+        }
+    ];
+
     return (
         <div className="sex-buttons-container">
-            {/* //todo: create custom button component */}
-            <button className="sex-button" onClick={() => setSexAction("male")}>
-                 Мужчина 
-            </button>
-            <button
-                className="sex-button"
-                onClick={() => setSexAction("female")}
-            >
-                 Девушка 
-            </button>
+            {genderButtons.map((button) => (
+                <button
+                    key={button.key}
+                    className="sex-button"
+                    onClick={() => setSexAction(button.key)}
+                >
+                    {button.label}
+                </button>
+            ))}
         </div>
     );
 };
