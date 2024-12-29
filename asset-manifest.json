@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/therapist-mini-app/static/css/main.5977f3ab.css",
-    "main.js": "/therapist-mini-app/static/js/main.bbf6af55.js",
+    "main.css": "/therapist-mini-app/static/css/main.1a7488ce.css",
+    "main.js": "/therapist-mini-app/static/js/main.e035ca64.js",
+    "static/media/logo.svg": "/therapist-mini-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/therapist-mini-app/index.html",
-    "main.5977f3ab.css.map": "/therapist-mini-app/static/css/main.5977f3ab.css.map",
-    "main.bbf6af55.js.map": "/therapist-mini-app/static/js/main.bbf6af55.js.map"
+    "main.1a7488ce.css.map": "/therapist-mini-app/static/css/main.1a7488ce.css.map",
+    "main.e035ca64.js.map": "/therapist-mini-app/static/js/main.e035ca64.js.map"
   },
   "entrypoints": [
-    "static/css/main.5977f3ab.css",
-    "static/js/main.bbf6af55.js"
+    "static/css/main.1a7488ce.css",
+    "static/js/main.e035ca64.js"
   ]
 }
