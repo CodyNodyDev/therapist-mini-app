@@ -13,7 +13,7 @@ const TitleImageContent = ({ title, image, isSexChosen }) => {
             </div>
             <div className="tic-image-container">
                 {/* //todo: insert svt sprite */}
-                <img src = {isSexChosen? genderChoosed : gender} alt = "gender" className="image"></img>
+                <img src = {isSexChosen? genderChoosed : gender} alt = "gender" className="image" />
             </div>
             <div className="tic-content-container">
                 {!isSexChosen ? <SetSex /> : <Profile />}
