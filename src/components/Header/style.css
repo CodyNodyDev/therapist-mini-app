@@ -1,13 +1,18 @@
-.header * {
-    border: 1px solid purple;
+:root{
+    --font-size:16px;
+    --font-color:#23262F;
+    --bg-color:#FCFCFD;
 }
-
 .header,
 .header * {
-    display: flex;
+    font-weight: 700;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    font-size: var(--font-size);
 }
 
 .header {
+    display: flex;
     height: 90px;
     justify-content: space-between;
     align-items: center;
@@ -16,13 +21,43 @@
 
 .left-side,
 .right-side {
-    padding: 0 5px;
     align-items: center;
     height: 30px;
 }
 
-.right-side {
-    gap: 10px;
+.left-side,
+.right-side,
+.header-level-container,
+.header-wallet-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.header-username-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side{
+    width: 130px;
+    margin-left: 35px;
+}
+
+.right-side{
+    margin-right: 15px;
+}
+
+.header-level-container{
+    width: 44px;
+    margin-right: 10px;
+}
+
+.header-level,
+.header-wallet{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .left-side,
@@ -31,21 +66,17 @@
     gap: 5px;
 }
 
-.right-side .header-level-container,
-.right-side .header-wallet-container {
-    justify-content: flex-start;
+.left-side{
+    gap: 15px;
 }
 
 .header-icon-container {
     width: 24px;
     height: 24px;
+    display: flex;
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-}
-
-.header-username-container {
-    width: 90px;
 }
 
 .header-wallet {
