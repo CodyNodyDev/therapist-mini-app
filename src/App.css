@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  background-color: #141416;
+  color: #FFFFFF;
+  width: 335px;
+  height: 49px;
+  border-radius: 5px;
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  cursor: pointer;  
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 0.3s;
+}

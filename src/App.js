@@ -19,12 +19,25 @@ function App() {
         }
     }, []);
 
+    const fontStyle = {
+        buttonFonts: {
+            fontFamily: 'DM Sans',
+            fontWeight: '700',
+            fontSize: '24px',
+        },
+    };
+
     return (
         <div className="app">
             <h1>Привет, {username ? username : "@username"}!</h1>
             <p>Добро пожаловать в наше Telegram Mini App!</p>
+            <div className="buttons">
+                <buttons style={fontStyle.buttonFonts} className='btn'>Мужчина</buttons>
+                <buttons style={fontStyle.buttonFonts} className='btn'>Девушка</buttons>
+            </div>
         </div>
     );
+
 }
 
 export default App;
