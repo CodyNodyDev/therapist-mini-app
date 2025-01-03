@@ -1,8 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+:root {
+    --font-text: 'DM Sans';
+    --font-weight-text: 700;
+    --font-size-text: 24px;
+}
+
 .sex-buttons-container {
-    width: 120px;
+    width: 320px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
 }
+
+.sex-button {
+    background-color: #141416;
+    color: #FFFFFF;
+    width: 335px;
+    height: 49px;
+    border-radius: 5px;
+    /* font-family: var(--font-text); */
+    font-size: var(--font-size-text);
+    font-weight: var(--font-weight-text);
+    cursor: pointer;
+}
+
+.sex-button:hover {
+    background-color: #fff;
+    color: #000;
+    transition: 0.3s;
+  }
