@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+:root {
+  --small-font-size: 12px;
+  --bg-color-main:#F4F5F6;
+  --font-family: 'DM Sans', sans-serif;
+  --font-weight-text: 700;
+  --font-size-text: 24px;
+}
+
+* {
+  background-color: var(--bg-color-main);
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

@@ -1,0 +1,41 @@
+:root{
+    --font-size-title:40px;
+    --font-color-title:#182135;
+}
+
+.tic-container{
+    height: 100%;
+}
+.tic-title-container {
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tic-title-container .page-title {
+    text-align: center;
+}
+
+.tic-image-container {
+    max-width: 280px;
+    height: 270px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* todo: will delete */
+.tic-image-container .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-title{
+    color:var(--font-color-title);
+    font-size: var(--font-size-title);
+    font-weight: 700;
+}
