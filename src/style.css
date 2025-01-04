@@ -3,6 +3,8 @@
   --small-font-size: 12px;
   --bg-color-main:#F4F5F6;
   --font-family: 'DM Sans', sans-serif;
+  --font-weight-text: 700;
+  --font-size-text: 24px;
 }
 
 * {
