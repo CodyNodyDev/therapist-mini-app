@@ -39,13 +39,18 @@
     align-items: center;
 }
 
+.header-data-container{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
 .left-side{
-    width: 130px;
     margin-left: 35px;
 }
 
 .right-side{
     margin-right: 15px;
+    gap: 20px;
 }
 
 .header-level-container{
@@ -66,9 +71,7 @@
     gap: 5px;
 }
 
-.left-side{
-    gap: 15px;
-}
+
 
 .header-icon-container {
     width: 24px;
