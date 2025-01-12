@@ -1,8 +1,7 @@
 import React from "react";
 import SetSex from "../SetSex";
 import Profile from "../Profile";
-import gender from "../../assets/gender.svg"
-import genderChoosed from  "../../assets/genderChoosed.svg"
+import ImageViewer from "../ImageViewer/index.tsx";
 import "./style.css";
 
 const TitleImageContent = ({ title, image, isSexChosen }) => {
@@ -12,8 +11,7 @@ const TitleImageContent = ({ title, image, isSexChosen }) => {
                 <span className="page-title">{title}</span>
             </div>
             <div className="tic-image-container">
-                {/* //todo: insert svt sprite */}
-                <img src = {isSexChosen? genderChoosed : gender} alt = "gender" className="image" />
+                <ImageViewer id = {isSexChosen? "genderChoosed" : "gender"} alt = "gender" className="image" />
             </div>
             <div className="tic-content-container">
                 {!isSexChosen ? <SetSex /> : <Profile />}
