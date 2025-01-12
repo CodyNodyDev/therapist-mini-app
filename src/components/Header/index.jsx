@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTelegram } from "../../context/TelegramProvider";
-import ImageViewer from "../ImageViewer/index.tsx";
+import SvgSelector from "../../assets/SvgSelector/SvgSelector";
 import "./style.css";
 
 const Header = () => {
@@ -25,7 +25,7 @@ const Header = () => {
 
   const Profile = () => (
     <div className="left-side">
-      <ImageViewer id="user" alt="User avatar" className="header-icon-container" />
+      <SvgSelector name={"user"} />
       <div className="header-username-container">
         @{user?.username || "username"}
       </div>
@@ -36,7 +36,7 @@ const Header = () => {
     <div className="right-side">
       {userInfoData.map((item) => (
         <div className="header-data-container" key={item.id}>
-          <ImageViewer id={item.id} alt="Icon" className={item.className} />
+          <SvgSelector name={item.id} className={item.className} />
           <div className="header-value">{item.value}</div>
         </div>
       ))}
