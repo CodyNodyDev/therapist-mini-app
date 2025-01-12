@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setUserSex } from "../../store/slices/user";
+import { genderButtons } from "./meta";
 import "./style.css";
 
 const SetSex = () => {
@@ -9,17 +10,6 @@ const SetSex = () => {
     const setSexAction = (sex) => {
         dispatch(setUserSex(sex));
     };
-
-    const genderButtons = [
-        {
-            key: "male",
-            label: "Мужчина"
-        },
-        {
-            key: "female",
-            label: "Девушка"
-        }
-    ];
 
     return (
         <div className="sex-buttons-container">
