@@ -7,17 +7,26 @@ const Header = () => {
   const { user } = useTelegram();
   const [level, setLevel] = useState(5);
   const [balance, setBalance] = useState(124124);
+  const [currentUser, setCurrentUser] = useState({});
 
+  const getUser = () =>{
+    const url = "https://therapist-backend-production.up.railway.app/api/users";
+    fetch(url)
+      .then((response) => response.json())
+      .then((userData) => userData.filter((userf) => userf.username === "Ania_537"))
+      .then((userf) => setCurrentUser(userf[0]));
+    
+  };
   const userInfoData = [
     {
       className: "header-level",
-      value: level,
+      value: currentUser.firstname,
       action: setLevel,
       id: "level",
     },
     {
       className: "header-wallet",
-      value: balance,
+      value: currentUser.userid,
       action: setBalance,
       id: "wallet",
     },
@@ -34,6 +43,8 @@ const Header = () => {
 
   const ProfileInfo = () => (
     <div className="right-side">
+      <button onClick={getUser}></button>
+
       {userInfoData.map((item) => (
         <div className="header-data-container" key={item.id}>
           <SvgSelector name={item.id} className={item.className} />
