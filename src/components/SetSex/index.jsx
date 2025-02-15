@@ -9,6 +9,8 @@ const SetSex = () => {
 
     const setSexAction = (sex) => {
         dispatch(setUserSex(sex));
+        // fetch get from api current user
+        // put call api (fetch)
     };
 
     return (
