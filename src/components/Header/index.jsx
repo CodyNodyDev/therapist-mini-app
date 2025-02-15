@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTelegram } from "../../context/TelegramProvider";
 import SvgSelector from "../../assets/SvgSelector/SvgSelector";
 import "./style.css";
@@ -10,27 +10,32 @@ const Header = () => {
   const [currentUser, setCurrentUser] = useState({});
 
   const getUser = () =>{
-    const url = "https://therapist-backend-production.up.railway.app/api/users";
+    const url = "https://therapist-backend-production.up.railway.app/users";
     fetch(url)
       .then((response) => response.json())
-      .then((userData) => userData.filter((userf) => userf.username === "Ania_537"))
+      .then((userData) => userData.filter((userf) => userf.username === user?.username))
       .then((userf) => setCurrentUser(userf[0]));
     
   };
   const userInfoData = [
     {
       className: "header-level",
-      value: currentUser.firstname,
+      value: currentUser.level,
       action: setLevel,
       id: "level",
     },
     {
       className: "header-wallet",
-      value: currentUser.userid,
+      value: currentUser.balans,
       action: setBalance,
       id: "wallet",
     },
   ];
+  useEffect(() => {
+    getUser();
+
+    // if currentUser -> in store: setUser; setUserSex
+  }, []);
 
   const Profile = () => (
     <div className="left-side">
@@ -43,8 +48,6 @@ const Header = () => {
 
   const ProfileInfo = () => (
     <div className="right-side">
-      <button onClick={getUser}></button>
-
       {userInfoData.map((item) => (
         <div className="header-data-container" key={item.id}>
           <SvgSelector name={item.id} className={item.className} />
