@@ -9,14 +9,13 @@ const Header = () => {
   const [balance, setBalance] = useState(124124);
   const [currentUser, setCurrentUser] = useState({});
 
-  const getUser = () =>{
+  const getUser = () => {
     const url = "https://therapist-backend-production.up.railway.app/users";
     fetch(url)
       .then((response) => response.json())
-      .then((userData) => userData.filter((userf) => userf.username === user?.username))
-      .then((userf) => setCurrentUser(userf[0]));
-    
+      .then((userData) => setCurrentUser(userData.find((userf) => userf.username === user?.username )));
   };
+  
   const userInfoData = [
     {
       className: "header-level",
@@ -32,10 +31,12 @@ const Header = () => {
     },
   ];
   useEffect(() => {
+    if (!user || !user.username) {
+        return;
+    }
     getUser();
+}, [user]);
 
-    // if currentUser -> in store: setUser; setUserSex
-  }, []);
 
   const Profile = () => (
     <div className="left-side">
