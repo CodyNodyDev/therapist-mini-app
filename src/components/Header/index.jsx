@@ -13,7 +13,7 @@ const Header = () => {
     const url = "http://localhost:3011/api/users";
     fetch(url)
       .then((response) => response.json())
-      .then((userData) => setCurrentUser(userData.find((userf) => userf.username === "zhm1603" )));
+      .then((userData) => setCurrentUser(userData.find((userf) => userf.username === user?.username )));
   };
   
   const userInfoData = [
@@ -31,11 +31,11 @@ const Header = () => {
     },
   ];
   useEffect(() => {
-    // if (!user || !user.username) {
-    //     return;
-    // }
+    if (!user || !user.username) {
+        return;
+    }
     getUser();
-}, []);
+}, [user]);
 
 
   const Profile = () => (
