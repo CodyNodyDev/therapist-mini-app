@@ -15,7 +15,7 @@ const SetSex = ({ onSexChosen }) => {
             const response = await fetch("https://therapist-backend-production.up.railway.app/users/");
             const users = await response.json();
 
-            const user = users.find((user) => user.username === "zhm1603");
+            const user = users.find((user) => user.username === user?.username);
             if (user) {
                 setCurrentUser(user);
                 if (user.gender && user.gender !== "none") {
