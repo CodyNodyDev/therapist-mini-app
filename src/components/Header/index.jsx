@@ -1,58 +1,51 @@
 import React, { useState, useEffect } from "react";
 import { useTelegram } from "../../context/TelegramProvider";
+import { fetchUsers } from "../../api/api"; 
 import SvgSelector from "../../assets/SvgSelector/SvgSelector";
 import "./style.css";
 
 const Header = () => {
   const { user } = useTelegram();
-  const [level, setLevel] = useState(5);
-  const [balance, setBalance] = useState(124124);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({ level: 0, balans: 0 });
 
-  const getUser = () => {
-    const url = "https://therapist-backend-production.up.railway.app/users";
-    fetch(url)
-      .then((response) => response.json())
-      .then((userData) => setCurrentUser(userData.find((userf) => userf.username === user?.username )));
-  };
-  
-  const userInfoData = [
-    {
-      className: "header-level",
-      value: currentUser.level,
-      action: setLevel,
-      id: "level",
-    },
-    {
-      className: "header-wallet",
-      value: currentUser.balans,
-      action: setBalance,
-      id: "wallet",
-    },
-  ];
-  useEffect(() => {
-    if (!user || !user.username) {
-        return;
+
+  const getUser = async () => {
+    try {
+      const users = await fetchUsers(); 
+      const userData = users.find((u) => u.username === "zhm1603");
+      console.log(userData,"1");
+      if (userData) {
+        setCurrentUser(userData);
+      }
+    } catch (error) {
+      console.error("Ошибка при загрузке пользователя:", error);
     }
-    getUser();
-}, [user]);
+  };
 
+  useEffect(() => {
+    // if (user?.username) {
+      getUser();
+    // }
+  }, []);
+
+  const userInfoData = [
+    { className: "header-level", value: currentUser.level || "—", id: "level" },
+    { className: "header-wallet", value: currentUser.balans || "—", id: "wallet" },
+  ];
 
   const Profile = () => (
     <div className="left-side">
-      <SvgSelector name={"user"} />
-      <div className="header-username-container">
-        @{user?.username || "username"}
-      </div>
+      <SvgSelector name="user" />
+      <div className="header-username-container">@{user?.username || "username"}</div>
     </div>
   );
 
   const ProfileInfo = () => (
     <div className="right-side">
-      {userInfoData.map((item) => (
-        <div className="header-data-container" key={item.id}>
-          <SvgSelector name={item.id} className={item.className} />
-          <div className="header-value">{item.value}</div>
+      {userInfoData.map(({ id, className, value }) => (
+        <div className="header-data-container" key={id}>
+          <SvgSelector name={id} className={className} />
+          <div className="header-value">{value}</div>
         </div>
       ))}
     </div>
