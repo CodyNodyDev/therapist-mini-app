@@ -10,7 +10,7 @@ const Header = () => {
   const [currentUser, setCurrentUser] = useState({});
 
   const getUser = () => {
-    const url = "http://localhost:3011/api/users";
+    const url = "https://therapist-backend-production.up.railway.app/users";
     fetch(url)
       .then((response) => response.json())
       .then((userData) => setCurrentUser(userData.find((userf) => userf.username === user?.username )));

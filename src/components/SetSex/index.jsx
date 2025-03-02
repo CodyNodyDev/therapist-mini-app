@@ -1,24 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useTelegram } from "../../context/TelegramProvider";
 import { setUserSex } from "../../store/slices/user";
 import { genderButtons } from "./meta";
 import TitleImageContent from "../TitleImageContent";
 import "./style.css";
 
 const SetSex = ({ onSexChosen }) => {
+    const { user } = useTelegram();
     const dispatch = useDispatch();
     const [currentUser, setCurrentUser] = useState(null);
     const [isSexChosen, setIsSexChosen] = useState(false);
 
     const getUser = async () => {
         try {
-            const response = await fetch("https://therapist-backend-production.up.railway.app/users/");
+            console.log("Запрос пользователей...");
+            const response = await fetch("https://therapist-backend-production.up.railway.app/users");
             const users = await response.json();
+            console.log("Полученные пользователи:", users);
 
-            const user = users.find((user) => user.username === user?.username);
-            if (user) {
-                setCurrentUser(user);
-                if (user.gender && user.gender !== "none") {
+            const foundUser = users.find((userf) => userf.username === user?.username);
+
+            if (foundUser) {
+                console.log("Найденный пользователь:", foundUser);
+                setCurrentUser(foundUser);
+                if (foundUser.gender && foundUser.gender !== "none") {
                     setIsSexChosen(true);
                     onSexChosen(true);
                 }
@@ -31,8 +37,15 @@ const SetSex = ({ onSexChosen }) => {
     };
 
     useEffect(() => {
+        console.log("Компонент монтируется, вызываем getUser...");
         getUser();
     }, []);
+
+    useEffect(() => {
+        if (currentUser) {
+            console.log("Обновленный пользователь:", currentUser);
+        }
+    }, [currentUser]);
 
     const setSexAction = async (sex) => {
         if (!currentUser || !currentUser.userid) {
@@ -41,7 +54,7 @@ const SetSex = ({ onSexChosen }) => {
         }
 
         if (currentUser.gender && currentUser.gender !== "none") {
-            console.log("Пол уже установлен, обновление не требуется.");
+            console.log("Пол уже выбран:", currentUser.gender);
             return;
         }
 
@@ -54,20 +67,21 @@ const SetSex = ({ onSexChosen }) => {
                 gender: sex,
             };
 
-            console.log("Обновляем данные пользователя:", updatedUser);
+            console.log("Отправка запроса PATCH с данными:", updatedUser);
 
             const updateResponse = await fetch(`https://therapist-backend-production.up.railway.app/users/${currentUser.userid}`, {
-                method: "PUT",
+                method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedUser),
             });
 
             if (!updateResponse.ok) {
-                throw new Error(`Ошибка сервера: ${updateResponse.status}`);
+                throw new Error("Ошибка сервера");
             }
 
             const responseData = await updateResponse.json();
-            console.log("Пол успешно обновлён!", responseData);
+            console.log("Ответ от сервера после обновления:", responseData);
+
             setCurrentUser(responseData.user);
             setIsSexChosen(true);
             onSexChosen(true);
