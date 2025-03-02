@@ -5,6 +5,8 @@ const initialState = {
     userSex: "",
 };
 
+// initialState.user = fetch()
+
 export const userSlice = createSlice({
     name: "userSlice",
     initialState,
